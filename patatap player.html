@@ -1,0 +1,255 @@
+<!-- here in this project i am including two libraries - - paper.js and howler.js where 1st one adds the animation and the second one adds the sound when we 
+tap some key we can directly use some examples of animations from paper.js site rather than creating a bunch of them -->
+<html>
+<head>
+	<title>Patatap</title>
+	<script type="text/javascript" src = "paper-full.js"></script>       <!-- url for patatap.js for animations-->
+	<link rel="stylesheet" type="text/css" href="patatap project.css">
+	<script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.js"></script>   <!-- url for howler -->
+
+	<script type="text/paperscript" canvas="myCanvas">                   //here the green canvas is like an id where we give it a name and rather then just
+	
+	// Create a Paper.js Path to draw a line into it:                    //calling it an id we are defining/calling it as an canvas
+	// var path = new Path(); 
+	// // Give the stroke a color
+	// path.strokeColor = 'blue';
+	// var start = new Point(100, 100);                                     //for creating animation here we are creating a line
+	// // Move to start and draw a line from there
+	// path.moveTo(start);
+	// // Note the plus operator on Point objects.
+	// // PaperScript does that for us, and much more!
+	// path.lineTo(start + [ 100, -50 ]);
+
+	//for creating a circle 
+	// for(var x = 0; x < 1000; x+= 100){                                        //loop for drawing x as in horizontal view upto 9 circles as less than 1000
+	// 	for(var y = 0; y < 1000; y+= 100){                                    //nested loop for making it in vertical view
+	// 		var myCircle = new Path.Circle(new Point(x, y), 10);              //in the place of 50 we can add many other radiuses size 
+	// 		myCircle.fillColor = 'pink';	
+	// 	}
+	// }                                                                       //code produces a circle shaped path with a center point at {x: 100, y: 70} and a radius of 50 pt
+
+	//to download the zip file for the respective sounds refer - https://mp4-a.udemycdn.com/2016-06-28_17-37-13-24a838a99e46fb4f8c93bf44bf9ce75d/																							5c923cce-d9da-4727-96e1-eb8d77cfbc48.zip?kMj0Jc3ZUytRrs62jnaewB--1kQnZId5feiU8hUnpe1z48sD-																					eXe0TyIZpYuvwhKfKRSXNAKliBQk7LMENIbzsgLXphtY-NbukZotk-_PGT8zHX6ddck6PTX45FocsCNyE3ctx8-																						bLERw1ulVufVrMjlh59ae0RjSS1uiEWW0udkQ6tG8PhlLgYMEfSNoDHbFM9M4qusHTaLi-Bk
+	
+	//here we are making an object and calling it in the function onkeydown so that when we hit a key the particular element from here is called and played
+	var keyData = {
+	q: {
+		sound: new Howl({
+  		src: ['sounds/bubbles.mp3']
+		}),
+		color: '#1abc9c'
+	},
+	w: {
+		sound: new Howl({
+  		src: ['sounds/clay.mp3']
+		}),
+		color: '#2ecc71'
+	},
+	e: {
+		sound: new Howl({
+  		src: ['sounds/confetti.mp3']
+		}),
+		color: '#3498db'
+	},
+	r: {
+		sound: new Howl({
+  		src: ['sounds/corona.mp3']
+		}),
+		color: '#9b59b6'
+	},
+		t: {
+		sound: new Howl({
+  		src: ['sounds/dotted-spiral.mp3']
+		}),
+		color: '#34495e'
+	},
+	y: {
+		sound: new Howl({
+  		src: ['sounds/flash-1.mp3']
+		}),
+		color: '#16a085'
+	},
+	u: {
+		sound: new Howl({
+  		src: ['sounds/flash-2.mp3']
+		}),
+		color: '#27ae60'
+	},
+	i: {
+		sound: new Howl({
+  		src: ['sounds/flash-3.mp3']
+		}),
+		color: '#2980b9'
+	},
+	o: {
+		sound: new Howl({
+		src: ['sounds/glimmer.mp3']
+		}),
+		color: '#8e44ad'
+	},
+	p: {
+		sound: new Howl({
+  		src: ['sounds/moon.mp3']
+		}),
+		color: '#2c3e50'
+	},
+	a: {
+		sound: new Howl({
+  		src: ['sounds/pinwheel.mp3']
+		}),
+		color: '#f1c40f'
+	},
+	s: {
+		sound: new Howl({
+  		src: ['sounds/piston-1.mp3']
+		}),
+		color: '#e67e22'
+	},
+		d: {
+		sound: new Howl({
+  		src: ['sounds/piston-2.mp3']
+		}),
+		color: '#e74c3c'
+	},
+	f: {
+		sound: new Howl({
+  		src: ['sounds/prism-1.mp3']
+		}),
+		color: '#95a5a6'
+	},
+	g: {
+		sound: new Howl({
+  		src: ['sounds/prism-2.mp3']
+		}),
+		color: '#f39c12'
+	},
+	h: {
+		sound: new Howl({
+  		src: ['sounds/prism-3.mp3']
+		}),
+		color: '#d35400'
+	},
+	j: {
+		sound: new Howl({
+  		src: ['sounds/splits.mp3']
+		}),
+		color: '#1abc9c'
+	},
+	k: {
+		sound: new Howl({
+  		src: ['sounds/squiggle.mp3']
+		}),
+		color: '#2ecc71'
+	},
+	l: {
+		sound: new Howl({
+  		src: ['sounds/strike.mp3']
+		}),
+		color: '#3498db'
+	},
+	z: {
+		sound: new Howl({
+  		src: ['sounds/suspension.mp3']
+		}),
+		color: '#9b59b6'
+	},
+	x: {
+		sound: new Howl({
+  		src: ['sounds/timer.mp3']
+		}),
+		color: '#34495e'
+	},
+	c: {
+		sound: new Howl({
+  		src: ['sounds/ufo.mp3']
+		}),
+		color: '#16a085'
+	},
+	v: {
+		sound: new Howl({
+  		src: ['sounds/veil.mp3']
+		}),
+		color: '#27ae60'
+	},
+	b: {
+		sound: new Howl({
+  		src: ['sounds/wipe.mp3']
+		}),
+		color: '#2980b9'
+	},
+	n: {
+		sound: new Howl({
+		src: ['sounds/zig-zag.mp3']
+		}),
+		color: '#8e44ad'
+	},
+	m: {
+		sound: new Howl({
+  		src: ['sounds/moon.mp3']
+		}),
+		color: '#2c3e50'
+	}
+}
+
+	// var sound1 = new Howl({                                                     //syntax fro playing the sound that we want 
+ // 	src: ['sound.mp3', 'sound.ogg']                                            //give the src of the sound that we have added
+	// });     
+	// var sound2 = new Howl({
+ //  	src: ['sound.mp3', 'sound.ogg']                                            //this is for the if/else statement below for a & s
+	// }).play();
+
+ 	var circles = [];
+
+ 	function onKeyDown(event) {                                               //here we are using onkeydown means when we press the key so only that time animation begins
+ 		if(keyData[event.key]){
+ 			var maxpoint = new Point(view.size.width, view.size.height);          //here type Point's  (P) in uppercase its not a variable 
+			var randompoint = Point.random();                                //here we are making random circles where we multiply the dimensions or the cordinates where they 
+			var point = maxpoint * randompoint;   
+			var newCircle = new Path.Circle(point, 500)
+			newCircle.fillColor =  keyData[event.key].color;
+			keyData[event.key].sound.play();
+			circles.push(newCircle);		
+	}
+
+ }
+ 		//sound.play();                                                       //to play the sound when we hit a key so we have added this into the onkeydown function
+		
+
+
+		 		
+		 		//way to use howler for 2 key testing
+ 	// 	if(event.key === "a"){
+ 	// 		//then play sound1
+ 	// 		sound1.play();
+ 	// 		newCircle.fillColor = "purple"
+ 	// 	}
+ 	// 	else if(event.key === "s"){
+ 	// 		sound2.play();
+ 	// 		newCircle.fillColor = "#16a085"
+ 	// 	}
+ 	// 		else {                                                 
+		// 		newCircle.fillColor = "orange";                                // are and this generates the circles randomly anywhere on the screen
+		// }
+		
+	//var animatedCircle = new Path.Circle(new Point(300,300),100);    //this is for the circle we get when page is loaded without tapping any button/key
+	//animatedCircle.fillColor = "red";
+
+	function onFrame(event) {
+		for(var i =0; i < circles.length; i++){
+			circles[i].fillColor.hue += 1;
+			circles[i].scale(.9);                                      //more is the value more time it will take to fade away and sometimes for some animations
+		}	                                                           //its good to add a greater number but do remember that a point/decimal is als added before
+		//animatedCircle.fillColor.hue += 1;
+		//animatedCircle.scale(.9);
+	}
+
+</script>
+
+</head>
+<body>
+
+	<canvas id="myCanvas" resize></canvas>
+
+</body>
+</html>
+
+<!-- paper.js used cancas which is used to animate the pages
